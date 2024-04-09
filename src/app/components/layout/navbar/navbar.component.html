@@ -1,0 +1,17 @@
+<header class="bg-zinc-800 w-full py-3">
+  <div class="container flex items-center justify-center mx-auto">
+    <h1 class="text-white font-bold italic text-xl">Ecommerce</h1>
+    <nav class="flex gap-4 items-center justify-end flex-1">
+      <div class="text-white "><a routerLink="/"
+                                  [routerLinkActiveOptions]="{exact:true}"
+                                  [routerLinkActive]="['bg-neutral-300', 'px-2', 'py-1','text-zinc-800','font-bold']">Home</a>
+      </div>
+      <div class="text-white"><a routerLink="/products/add"
+                                 [routerLinkActive]="['bg-neutral-300', 'px-2', 'py-1','text-zinc-800','font-bold']">Add
+        Products</a></div>
+      <div class="text-white"><a routerLink="/cart"
+                                 [routerLinkActive]="['bg-neutral-300', 'px-2', 'py-1','text-zinc-800','font-bold']">Cart</a>
+      </div>
+    </nav>
+  </div>
+</header>

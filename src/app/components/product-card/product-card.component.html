@@ -1,0 +1,13 @@
+<div class="h-full flex flex-col gap-1 w-full p-3 border border-gray-300 shadow rounded-md">
+  <div class="w-full h-60">
+    <img [src]="product.image" [alt]="product.title" class="w-full h-full object-contain">
+  </div>
+  <h2 class="text-lg font-bold text-center">{{ product.title }}</h2>
+  <p class="font-semibold text-center">Price: ${{ product.price }}</p>
+  <div class="flex gap-3 w-full justify-center items-center">
+    <a routerLink="/products/add" [queryParams]="{edit:true,product:product.id}">
+      <button class="bg-blue-500 rounded-lg text-white px-3 py-2">Edit</button>
+    </a>
+    <button class="bg-red-500 rounded-lg text-white px-3 py-2">Delete</button>
+  </div>
+</div>
