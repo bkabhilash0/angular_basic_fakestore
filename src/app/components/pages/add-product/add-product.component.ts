@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {CommonModule, NgForOf} from "@angular/common";
 import {ProductCardComponent} from "../../product-card/product-card.component";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ProductService} from "../../../services/product.service";
@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   selector: 'app-add-product',
   standalone: true,
   imports: [
-    NgForOf,
+    CommonModule,
     ProductCardComponent,
     FormsModule,
     ReactiveFormsModule
@@ -23,7 +23,7 @@ export class AddProductComponent implements OnInit {
   editMode: boolean = false;
 
   formGroup: FormGroup = new FormGroup({
-    name: new FormControl("", [Validators.required]),
+    name: new FormControl("", [Validators.required,Validators.minLength(3)]),
     price: new FormControl("", [Validators.required]),
     description: new FormControl("", [Validators.required]),
     image: new FormControl("", [Validators.required]),
@@ -57,6 +57,7 @@ export class AddProductComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formGroup.value);
+    console.log(this.formGroup.controls['name'].errors)
     const data: Product = {
       title: this.formGroup.value.name,
       description: this.formGroup.value.description,
